@@ -1,3 +1,24 @@
+/************************
+ * SET UP LOG IN SYSTEM *
+ ***********************/
+
+// Login imports.
+const crypto = require("crypto");
+const passport = require("passport");
+const Strategy = require("passport-local").Strategy;
+// Login local imports.
+const signingin = require("./lib/signingin");
+
+// Configure the local strategy for use by Passport.
+passport.use(new Strategy(signingin.strategyFunc));
+// Configure Passport authenticated session persistence.
+passport.serializeUser(signingin.serializer);
+passport.deserializeUser(signingin.deserializer);
+
+/**************************
+ * SET UP EVERYTHING ELSE *
+ *************************/
+
 // Imports.
 const createError = require("http-errors");
 const express = require("express");
@@ -11,8 +32,8 @@ const dotenv = require("dotenv").config();
 const indexRouter = require("./routes/index");
 
 // Error codes.
-const notFound = 404;
-const internalServerError = 500;
+const NOT_FOUND = 404;
+const INTERNAL_SERVER_ERROR = 500;
 
 // Let's get cracking.
 const app = express();
@@ -46,10 +67,43 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 
 // ROUTES.
 app.use("/", indexRouter);
+app.use("/logmein", loginRouter);
+app.use(
+    "/profile",
+    require("connect-ensure-login").ensureLoggedIn(),
+    profileRouter
+);
+app.use("/asis", require("connect-ensure-login").ensureLoggedIn(), asIsRouter);
+app.use(
+    "/uploads",
+    require("connect-ensure-login").ensureLoggedIn(),
+    uploadsRouter
+);
+app.get("/login", function (req, res) {
+    res.redirect("/logmein");
+});
+app.use(
+    "/admin",
+    require("connect-ensure-login").ensureLoggedIn(),
+    adminRouter
+);
+app.post(
+    "/login",
+    passport.authenticate("local", {failureRedirect: "/logmein/failure"}),
+    function (req, res) {
+        res.redirect("/logmein/success");
+    }
+);
+app.get("/logout", function (req, res) {
+    req.logout(function(err) {
+        if (err) return next(err);
+        res.redirect("/");
+    });
+});
 
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
-    next(createError(notFound));
+    next(createError(NOT_FOUND));
 });
 
 // Error handler.
@@ -58,7 +112,7 @@ app.use(function (err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
     // Render the error page.
-    res.status(err.status || internalServerError);
+    res.status(err.status || INTERNAL_SERVER_ERROR);
     res.render("error");
 });
 
