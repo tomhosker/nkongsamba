@@ -1,5 +1,5 @@
 /*
-This code handles the site's home page.
+This code handles a request to view the profile of the current user.
 */
 
 // Imports.
@@ -14,7 +14,7 @@ const finaliser = new Finaliser();
 
 // Return the home page.
 router.get("/", function (req, res, next) {
-    let theTitle = "User: " + req.user.username;
+    const theTitle = `User: ${req.user.username}`;
 
     finaliser.protoRender(req, res, "profile", {
         title: theTitle,

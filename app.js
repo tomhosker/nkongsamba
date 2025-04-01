@@ -29,7 +29,12 @@ const favicon = require("express-favicon");
 const dotenv = require("dotenv").config();
 
 // Local imports.
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index.js");
+const loginRouter = require("./routes/logmein.js");
+const profileRouter = require("./routes/profile.js");
+const asIsRouter = require("./routes/asis.js");
+const writerRouter = require("./routes/writer.js");
+const adminRouter = require("./routes/admin.js");
 
 // Error codes.
 const NOT_FOUND = 404;
@@ -75,9 +80,9 @@ app.use(
 );
 app.use("/asis", require("connect-ensure-login").ensureLoggedIn(), asIsRouter);
 app.use(
-    "/uploads",
+    "/write",
     require("connect-ensure-login").ensureLoggedIn(),
-    uploadsRouter
+    writerRouter
 );
 app.get("/login", function (req, res) {
     res.redirect("/logmein");

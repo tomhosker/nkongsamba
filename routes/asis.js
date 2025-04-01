@@ -6,23 +6,23 @@ Returns a table from the database, pretty much as is.
 const express = require("express");
 
 // Local imports.
-const ORM = require("../lib/orm.js");
+const AsisORM = require("../lib/orm/asis_orm.js");
 const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
 const finaliser = new Finaliser();
 
-// Get a list of all viewable tables.
-router.get("/", function (req, res, next) {
-    finaliser.protoRender(req, res, "rawtables", { title: "List of Tables" });
-});
-
 // Return the page for a given table.
 router.get("/:id", function (req, res, next) {
-    const orm = new ORM(req, res);
+    const tableName = req.params.id;
+    const orm = new AsisORM(tableName);
+    let properties;
 
-    orm.fetchAsIs(req, res);
+    orm.gatherDataAsync().then((data) => {
+        properties = {title: `AsIs:${tableName}`, data: data};
+        finaliser.protoRender(req, res, "asis", properties);
+    });
 });
 
 module.exports = router;

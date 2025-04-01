@@ -14,7 +14,6 @@ const finaliser = new Finaliser();
 
 // Return the login page.
 router.get("/", function (req, res, next) {
-    console.log(req.user);
     finaliser.protoRender(req, res, "logmein", { title: "Log In" });
 });
 
