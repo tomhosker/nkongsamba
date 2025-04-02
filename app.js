@@ -6,6 +6,7 @@
 const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
+const connectEnsureLogIn = require("connect-ensure-login");
 // Login local imports.
 const signingin = require("./lib/signingin");
 
@@ -62,6 +63,11 @@ app.use(
     })
 );
 
+// Initialise Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Initialise some other resources.
 app.use(logger("dev"));
 app.use(express.json());
@@ -73,31 +79,22 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 // ROUTES.
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
-app.use(
-    "/profile",
-    require("connect-ensure-login").ensureLoggedIn(),
-    profileRouter
-);
-app.use("/asis", require("connect-ensure-login").ensureLoggedIn(), asIsRouter);
-app.use(
-    "/write",
-    require("connect-ensure-login").ensureLoggedIn(),
-    writerRouter
-);
+app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
+app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);
+app.use("/write", connectEnsureLogIn.ensureLoggedIn(), writerRouter);
 app.get("/login", function (req, res) {
     res.redirect("/logmein");
 });
-app.use(
-    "/admin",
-    require("connect-ensure-login").ensureLoggedIn(),
-    adminRouter
-);
+app.use("/admin", connectEnsureLogIn.ensureLoggedIn(), adminRouter);
 app.post(
     "/login",
-    passport.authenticate("local", {failureRedirect: "/logmein/failure"}),
-    function (req, res) {
-        res.redirect("/logmein/success");
-    }
+    passport.authenticate(
+        "local",
+        {
+            failureRedirect: "/logmein/failure",
+            successRedirect: "/logmein/success"
+        }
+    )
 );
 app.get("/logout", function (req, res) {
     req.logout(function(err) {

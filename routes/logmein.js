@@ -19,23 +19,18 @@ router.get("/", function (req, res, next) {
 
 // Return the page telling the user that he logged in successfully.
 router.get("/success", function (req, res, next) {
-    if (req.user) {
-        finaliser.protoRender(req, res, "loginsuccess", {
-            title: "Success",
-            username: req.user.username,
-        });
-    } else {
-        res.redirect("/login");
-    }
+    const properties = {title: "Success", username: req.user.username};
+
+    if (!req.isAuthenticated()) res.redirect("/login");
+    else finaliser.protoRender(req, res, "loginsuccess", properties);
 });
 
 // Redirect the user to the login page, with a message saying that his
 // previous attempt failed.
 router.get("/failure", function (req, res, next) {
-    finaliser.protoRender(req, res, "logmein", {
-        title: "Success",
-        previousFailure: true,
-    });
+    const properties = {title: "Success", previousFailure: true};
+
+    finaliser.protoRender(req, res, "logmein", properties);
 });
 
 module.exports = router;
