@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Select a page from the drop-down list, and press ``Submit'' to delete it.
+        p #[b Please note: Once a record has been deleted, it cannot be recovered.]
+    h1=title
+
+    p Delete a user-generated page?
+
+    if summaries.length == 0
+        p #[i Nothing to delete.]
+    else
+        form(action=formAction, method="post")
+            p
+                | Select page to delete:
+                select(id="pageCode", name="pageCode")
+                    for summary in summaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")

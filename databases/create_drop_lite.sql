@@ -1,7 +1,8 @@
 -- This code configures or resets the database. Use with caution!
 
 -- Drop.
-DROP TABLE IF EXISTS DynamicPage;
+DROP TABLE IF EXISTS UserGeneratedPage;
+DROP TABLE IF EXISTS UserLoginDetails;
 
 -- Create.
 CREATE TABLE UserLoginDetails (
@@ -10,7 +11,7 @@ CREATE TABLE UserLoginDetails (
     hashed_password TEXT NOT NULL
 );
 
-CREATE TABLE DynamicPage (
+CREATE TABLE UserGeneratedPage (
     code TEXT PRIMARY KEY,
     title TEXT UNIQUE,
     markdown TEXT
@@ -24,7 +25,7 @@ VALUES (
     '84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec' -- guest
 );
 
-INSERT INTO DynamicPage (code, title, markdown)
+INSERT INTO UserGeneratedPage (code, title, markdown)
 VALUES (
     'test',
     'Test',

@@ -20,7 +20,7 @@ router.get("/:id", function (req, res, next) {
     let properties;
 
     orm.gatherDataAsync().then((data) => {
-        properties = {title: `AsIs:${tableName}`, data: data};
+        properties = {title: tableName, data: data};
         finaliser.protoRender(req, res, "asis", properties);
     });
 });
