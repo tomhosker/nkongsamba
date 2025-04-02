@@ -13,8 +13,8 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // GET home page.
-router.get("/", function (req, res, next) {
-    finaliser.protoRender(req, res, "index", { title: "Who Likes Ice Cream?" });
+router.get("/", (req, res) => {
+    finaliser.protoRender(req, res, "index", { title: "Home" });
 });
 
 module.exports = router;

@@ -34,7 +34,7 @@ const indexRouter = require("./routes/index.js");
 const loginRouter = require("./routes/logmein.js");
 const profileRouter = require("./routes/profile.js");
 const asIsRouter = require("./routes/asis.js");
-const writerRouter = require("./routes/writer.js");
+const writeRouter = require("./routes/write.js");
 const adminRouter = require("./routes/admin.js");
 
 // Error codes.
@@ -81,10 +81,8 @@ app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
 app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
 app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);
-app.use("/write", connectEnsureLogIn.ensureLoggedIn(), writerRouter);
-app.get("/login", function (req, res) {
-    res.redirect("/logmein");
-});
+app.use("/write", connectEnsureLogIn.ensureLoggedIn(), writeRouter);
+app.get("/login", (_, res) => res.redirect("/logmein"));
 app.use("/admin", connectEnsureLogIn.ensureLoggedIn(), adminRouter);
 app.post(
     "/login",
@@ -96,8 +94,8 @@ app.post(
         }
     )
 );
-app.get("/logout", function (req, res) {
-    req.logout(function(err) {
+app.get("/logout", (req, res) => {
+    req.logout((err) => {
         if (err) return next(err);
         res.redirect("/");
     });

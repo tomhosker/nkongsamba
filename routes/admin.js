@@ -13,7 +13,7 @@ const finaliser = new Finaliser();
 const router = express.Router();
 
 // GET home page.
-router.get("/", function (req, res, next) {
+router.get("/", (req, res) => {
     finaliser.protoRender(req, res, "admin", { title: "Admin Area" });
 });
 
