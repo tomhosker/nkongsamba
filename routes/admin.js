@@ -21,14 +21,12 @@ router.get("/", (req, res) => {
 
 // GET the page through which to delete records.
 router.get("/remove_user_generated_page", (req, res) => {
-    const action = "/write/deletefrom/UserGeneratedPage";
     const orm = new RemoveUserGeneratedPageORM();
     let properties;
 
     orm.gatherDataAsync().then((data) => {
         properties = {
             title: "Remove a User-Generated Page",
-            formAction: action,
             summaries: data
         };
 

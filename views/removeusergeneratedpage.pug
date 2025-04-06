@@ -12,7 +12,7 @@ block content
     if summaries.length == 0
         p #[i Nothing to delete.]
     else
-        form(action=formAction, method="post")
+        form(action="/write/deletefrom/UserGeneratedPage", method="post")
             p
                 | Select page to delete:
                 select(id="pageCode", name="pageCode")

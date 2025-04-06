@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    if success
+        if queryType == "deletion"
+            p You deleted data with the following query:
+            blockquote=query
+            p And parameters:
+            blockquote=params
+        else
+            p BAD QUERY TYPE
+    else
+        p Sorry, that upload wasn't successful. The database remains unchanged.
+        blockquote=error
+
+    h2 What Next?
+    p Back to the #[a(href="/admin") admin page].

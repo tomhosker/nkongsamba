@@ -16,8 +16,8 @@ const finaliser = new Finaliser();
 
 // Execute the deletion of a user-generated page.
 router.post("/deletefrom/UserGeneratedPage", (req, res) => {
-    const query = "DELETE FROM UserGeneratedPage WHERE code = ?";
-    const params = [req.body.code];
+    const query = "DELETE FROM UserGeneratedPage WHERE code = ?;";
+    const params = [req.body.pageCode];
     let properties, success;
 
     writer.runDelete(query, params).then((result) => {
