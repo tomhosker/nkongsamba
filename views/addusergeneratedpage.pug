@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        ol
+            li Enter the fields of the new page, and press ``Submit'' to write it.
+            li The #[code code] field gives the page's unique identifier; it will be used in page's URL.
+            li You already known what the #[code title] field does!
+            li The #[code markdown] field gives the content of the page; you should write it in the #[a(href="https://www.markdownguide.org/") ``Markdown'' markup language'].
+    h1=title
+
+    p Insert a new user-generated page?
+
+    form(action="/write/insertinto/UserGeneratedPage", method="post")
+        p
+            | #[code code]:
+            input(type="text", name="code", required)
+        p
+            | #[code title]:
+            input(type="text", name="title", required)
+        p #[code markdown]:
+        p
+            textarea(name="markdown", required)
+        input(type="submit", value="Submit")

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        ol
+            li Enter the revised fields of the page, and press ``Submit'' to carry out the changes.
+            li The #[code code] field gives the page's unique identifier; #[b you can't change it].
+            li You already known what the #[code title] field does!
+            li The #[code markdown] field gives the content of the page; you should write it in the #[a(href="https://www.markdownguide.org/") ``Markdown'' markup language].
+    h1=title
+
+    p Amend an existing user-generated page?
+
+    form(action="/write/update/UserGeneratedPage", method="post")
+        p 
+            | #[code code]:
+            input(type="text", name="code", value=existingData.code, readonly="readonly")
+        p
+            | #[code title]:
+            input(type="text", name="title", value=existingData.title, required)
+        p #[code markdown]:
+        p
+            textarea(name="markdown", required)=existingData.markdown
+            input(type="submit", value="Submit")

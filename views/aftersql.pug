@@ -6,7 +6,14 @@ block content
     if success
         if queryType == "deletion"
             p You deleted data with the following query:
-            blockquote=query
+            blockquote
+                code=query
+            p And parameters:
+            blockquote=params
+        else if queryType == "insertion"
+            p You inserted data with the following query:
+            blockquote
+                code=query
             p And parameters:
             blockquote=params
         else

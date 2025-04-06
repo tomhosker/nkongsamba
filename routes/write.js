@@ -34,4 +34,49 @@ router.post("/deletefrom/UserGeneratedPage", (req, res) => {
     });
 });
 
+// Execute the insertion of a new user-generated page.
+router.post("/insertinto/UserGeneratedPage", (req, res) => {
+    const query =
+        "INSERT INTO UserGeneratedPage (code, title, markdown) " +
+        "VALUES (?, ?, ?);";
+    const params = [req.body.code, req.body.title, req.body.markdown];
+    let properties, success;
+
+    writer.runInsert(query, params).then((result) => {
+        success = (result === true) ? true : false;
+        properties = {
+            title: success ? "Insertion Successful" : "Insertion Unsuccessful",
+            queryType: "insertion",
+            query: query,
+            params: params,
+            success: success
+        };
+
+        finaliser.protoRender(req, res, "aftersql", properties);
+    });
+});
+
+// Execute the updating of an existing user-generated page.
+router.post("/update/UserGeneratedPage", (req, res) => {
+    const query =
+        "UPDATE UserGeneratedPage " +
+        "SET title = ?, markdown = ? " +
+        "WHERE code = ?;";
+    const params = [req.body.title, req.body.markdown, req.body.code];
+    let properties, success;
+
+    writer.runUpdate(query, params).then((result) => {
+        success = (result === true) ? true : false;
+        properties = {
+            title: success ? "Insertion Successful" : "Insertion Unsuccessful",
+            queryType: "insertion",
+            query: query,
+            params: params,
+            success: success
+        };
+
+        finaliser.protoRender(req, res, "aftersql", properties);
+    });
+});
+
 module.exports = router;

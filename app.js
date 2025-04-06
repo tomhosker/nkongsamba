@@ -103,6 +103,7 @@ app.get("/logout", (req, res) => {
 
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
+console.log(req);
     next(createError(NOT_FOUND));
 });
 

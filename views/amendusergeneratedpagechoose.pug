@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Select a page from the drop-down list, and press ``Submit'' to begin amending it.
+    h1=title
+
+    p Amend a user-generated page?
+
+    if summaries.length == 0
+        p #[i Nothing to amend.]
+    else
+        form(action="/admin/amend_user_generated_page_write", method="get")
+            p
+                | Select page to amend:
+                select(id="pageCode", name="pageCode")
+                    for summary in summaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")
