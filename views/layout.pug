@@ -8,7 +8,8 @@ html
         block content
         footer
             br
-            if loggedIn
-                p #[a(href="/") Home] | #[a(href="/logout") Log out]
-            else
-                p #[a(href="/") Home] | #[a(href="/login") Log in]
+            p #[a(href="/") Home] | 
+                if loggedIn
+                    | #[a(href="/admin") Admin] | #[a(href="/logout") Log out]
+                else
+                    | #[a(href="/login") Log in]
