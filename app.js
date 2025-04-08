@@ -31,6 +31,7 @@ const dotenv = require("dotenv").config();
 
 // Local imports.
 const indexRouter = require("./routes/index.js");
+const usergenRouter = require("./routes/usergen.js");
 const loginRouter = require("./routes/logmein.js");
 const profileRouter = require("./routes/profile.js");
 const asIsRouter = require("./routes/asis.js");
@@ -79,6 +80,8 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 // ROUTES.
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
+app.use("/usergen", usergenRouter);
+// Protected routes.
 app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
 app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);
 app.use("/write", connectEnsureLogIn.ensureLoggedIn(), writeRouter);
@@ -102,13 +105,12 @@ app.get("/logout", (req, res) => {
 });
 
 // Catch 404 and forward to error handler.
-app.use(function (req, res, next) {
-console.log(req);
+app.use((req, res, next) => {
     next(createError(NOT_FOUND));
 });
 
 // Error handler.
-app.use(function (err, req, res, next) {
+app.use((err, req, res) => {
     // Set locals, only providing error in development.
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -118,7 +120,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Listen, and tell the programmer where to find the website.
-app.listen(app.get("port"), function () {
+app.listen(app.get("port"), () => {
     console.log("App running at port number: " + app.get("port"));
     console.log(
         "If running locally, navigate to: http://localhost:" +
