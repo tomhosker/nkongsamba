@@ -17,6 +17,11 @@ block content
             | #[code code]:
             input(type="text", name="code", required)
         p
+            | #[code section]:
+            select(id="section", name="section")
+                each section in sections
+                    option(value=section.code) #{section.title}
+        p
             | #[code title]:
             input(type="text", name="title", required)
         p #[code markdown]:

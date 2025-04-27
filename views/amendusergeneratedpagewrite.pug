@@ -17,6 +17,11 @@ block content
             | #[code code]:
             input(type="text", name="code", value=existingData.code, readonly="readonly")
         p
+            | #[code section]:
+            select(id="section", name="section")
+                each section in sections
+                    option(value=section.code) #{section.title}
+        p
             | #[code title]:
             input(type="text", name="title", value=existingData.title, required)
         p #[code markdown]:

@@ -23,19 +23,8 @@
     src: url("fonts/fraktur.ttf");
 }
 
-body {
-    font-family: computerModern, serif;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.header {
-    width: 100%;
-    height: 200px;
-    background-color: black;
-    background-image: url("logo.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
+:root {
+    --main-hue: rgb(215, 0, 64);
 }
 
 a:link {
@@ -51,6 +40,46 @@ a:hover {
 a:visited {
     text-decoration: none;
     color: blue;
+}
+
+body {
+    font-family: computerModern, serif;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+button.top-menu {
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    background-color: var(--main-hue);
+}
+
+div.helpbox {
+    float: right;
+    width: 400px;
+    border: 2px solid orange;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+div.top-menu {
+    border-top: 5px solid;
+    margin-top: 20px;
+    border-bottom: 5px solid;
+    margin-bottom: 20px;
+    border-color: var(--main-hue);
+}
+
+form {
+    padding-left: 30px;
 }
 
 helpbox {
@@ -69,8 +98,17 @@ table {
     width: 100%;
 }
 
+table.tabs {
+    border: none;
+}
+
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+tr.tabs {
+    border: none;
+    padding: none;
 }
 
 td,
@@ -80,8 +118,10 @@ th {
     padding: 8px;
 }
 
-form {
-    padding-left: 30px;
+td.tabs {
+    border: none;
+    padding: none;
+    text-align: center;
 }
 
 textarea {
@@ -89,12 +129,46 @@ textarea {
     height: 100px;
 }
 
-div.helpbox {
-    float: right;
-    width: 400px;
-    border: 2px solid orange;
-    margin: 20px auto 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-style: italic;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
 }

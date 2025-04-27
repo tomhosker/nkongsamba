@@ -5,11 +5,30 @@ html
         link(rel="stylesheet", href="/stylesheets/style.css")
     body
         div.header
+        div.top-menu
+            table.tabs
+                tr
+                    td.tabs
+                        div.dropdown
+                            button.top-menu Accueil
+                            div.dropdown-content
+                                a(href="/") Bienvenue!
+                                if globalData.sections.Accueil
+                                    each page in globalData.sections.Accueil
+                                        a(href="/usergen/"+page.code) #{page.title}
+                        each sectionData, sectionTitle in globalData.sections
+                            if !(["Accueil", "Internal Use Only"].includes(sectionTitle))
+                                div.dropdown
+                                    button.top-menu #{sectionTitle}
+                                    div.dropdown-content
+                                        each page in sectionData
+                                            a(href="/usergen/"+page.code) #{page.title}
+
         block content
         footer
             br
-            p #[a(href="/") Home] | 
+            p #[a(href="/") Accueil] | 
                 if loggedIn
-                    | #[a(href="/admin") Admin] | #[a(href="/logout") Log out]
+                    | #[a(href="/admin") Admin] | #[a(href="/logout") Se déconnecter]
                 else
-                    | #[a(href="/login") Log in]
+                    | #[a(href="/login") Se connecter]

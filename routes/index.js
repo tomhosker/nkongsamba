@@ -14,7 +14,7 @@ const finaliser = new Finaliser();
 
 // GET home page.
 router.get("/", (req, res) => {
-    finaliser.protoRender(req, res, "index", { title: "Home" });
+    finaliser.protoRender(req, res, "index", { title: "Bienvenue" });
 });
 
 module.exports = router;

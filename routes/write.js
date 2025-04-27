@@ -14,6 +14,26 @@ const router = express.Router();
 const writer = getWriter();
 const finaliser = new Finaliser();
 
+// Execute the deletion of a user-generated section.
+router.post("/deletefrom/UserGeneratedSection", (req, res) => {
+    const query = "DELETE FROM UserGeneratedSection WHERE code = ?;";
+    const params = [req.body.sectionCode];
+    let properties, success;
+
+    writer.runDelete(query, params).then((result) => {
+        success = (result === true) ? true : false;
+        properties = {
+            title: success ? "Deletion Successful" : "Deletion Unsuccessful",
+            queryType: "deletion",
+            query: query,
+            params: params,
+            success: success
+        };
+
+        finaliser.protoRender(req, res, "aftersql", properties);
+    });
+});
+
 // Execute the deletion of a user-generated page.
 router.post("/deletefrom/UserGeneratedPage", (req, res) => {
     const query = "DELETE FROM UserGeneratedPage WHERE code = ?;";
@@ -34,12 +54,42 @@ router.post("/deletefrom/UserGeneratedPage", (req, res) => {
     });
 });
 
+// Execute the insertion of a new user-generated section.
+router.post("/insertinto/UserGeneratedSection", (req, res) => {
+    const query =
+        "INSERT INTO UserGeneratedSection (code, title) " +
+        "VALUES (?, ?);";
+    const params = [
+        req.body.code,
+        req.body.title
+    ];
+    let properties, success;
+
+    writer.runInsert(query, params).then((result) => {
+        success = (result === true) ? true : false;
+        properties = {
+            title: success ? "Insertion Successful" : "Insertion Unsuccessful",
+            queryType: "insertion",
+            query: query,
+            params: params,
+            success: success
+        };
+
+        finaliser.protoRender(req, res, "aftersql", properties);
+    });
+});
+
 // Execute the insertion of a new user-generated page.
 router.post("/insertinto/UserGeneratedPage", (req, res) => {
     const query =
-        "INSERT INTO UserGeneratedPage (code, title, markdown) " +
-        "VALUES (?, ?, ?);";
-    const params = [req.body.code, req.body.title, req.body.markdown];
+        "INSERT INTO UserGeneratedPage (code, section, title, markdown) " +
+        "VALUES (?, ?, ?, ?);";
+    const params = [
+        req.body.code,
+        req.body.section,
+        req.body.title,
+        req.body.markdown
+    ];
     let properties, success;
 
     writer.runInsert(query, params).then((result) => {
@@ -60,15 +110,20 @@ router.post("/insertinto/UserGeneratedPage", (req, res) => {
 router.post("/update/UserGeneratedPage", (req, res) => {
     const query =
         "UPDATE UserGeneratedPage " +
-        "SET title = ?, markdown = ? " +
+        "SET section = ?, title = ?, markdown = ? " +
         "WHERE code = ?;";
-    const params = [req.body.title, req.body.markdown, req.body.code];
+    const params = [
+        req.body.section,
+        req.body.title,
+        req.body.markdown,
+        req.body.code
+    ];
     let properties, success;
 
     writer.runUpdate(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
-            title: success ? "Insertion Successful" : "Insertion Unsuccessful",
+            title: success ? "Update Successful" : "Update Unsuccessful",
             queryType: "insertion",
             query: query,
             params: params,

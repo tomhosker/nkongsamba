@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        ol
+            li Enter the fields of the new section, and press ``Submit'' to write it.
+            li The #[code code] field gives the section's unique identifier.
+            li You already known what the #[code title] field does!
+    h1=title
+
+    p Insert a new user-generated section?
+
+    form(action="/write/insertinto/UserGeneratedSection", method="post")
+        p
+            | #[code code]:
+            input(type="text", name="code", required)
+        p
+            | #[code title]:
+            input(type="text", name="title", required)
+        input(type="submit", value="Submit")

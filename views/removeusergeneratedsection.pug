@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Select a section from the drop-down list, and press ``Submit'' to delete it.
+        p Please note:
+        ol
+            li #[b Once a record has been deleted, it cannot be recovered.]
+            li The deletion will fail the section you are trying to delete has any pages associated with it.
+    h1=title
+
+    p Delete a user-generated section?
+
+    if summaries.length == 0
+        p #[i Nothing to delete.]
+    else
+        form(action="/write/deletefrom/UserGeneratedSection", method="post")
+            p
+                | Select page to delete:
+                select(id="sectionCode", name="sectionCode")
+                    for summary in summaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")

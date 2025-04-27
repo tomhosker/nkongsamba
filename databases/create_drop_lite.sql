@@ -2,6 +2,7 @@
 
 -- Drop.
 DROP TABLE IF EXISTS UserGeneratedPage;
+DROP TABLE IF EXISTS UserGeneratedSection;
 DROP TABLE IF EXISTS UserLoginDetails;
 
 -- Create.
@@ -11,8 +12,14 @@ CREATE TABLE UserLoginDetails (
     hashed_password TEXT NOT NULL
 );
 
+CREATE TABLE UserGeneratedSection (
+    code TEXT PRIMARY KEY,
+    title TEXT UNIQUE
+);
+
 CREATE TABLE UserGeneratedPage (
     code TEXT PRIMARY KEY,
+    section TEXT NOT NULL DEFAULT 'internal-use-only' REFERENCES UserGeneratedSection (code),
     title TEXT UNIQUE,
     markdown TEXT
 );
@@ -22,12 +29,16 @@ INSERT INTO UserLoginDetails (id, username, hashed_password)
 VALUES (
     1,
     'admin',
-    '84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec' -- guest
+    '84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec' -- i.e. 'guest'.
 );
 
-INSERT INTO UserGeneratedPage (code, title, markdown)
+INSERT INTO UserGeneratedSection (code, title)
+VALUES ('internal-use-only', 'Internal Use Only');
+
+INSERT INTO UserGeneratedPage (code, section, title, markdown)
 VALUES (
     'test',
+    'internal-use-only',
     'Test',
     'This is a test page. If you''re reading it, the test has probably passed!'
 );
