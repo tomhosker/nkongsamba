@@ -4,7 +4,13 @@ html
         title Nkongsamba | #{title}
         link(rel="stylesheet", href="/stylesheets/style.css")
     body
-        div.header
+        header.banner
+            div.logo-container
+                img.logo(src="/images/logo.png")
+            div.eve-container
+                img(src="/images/eveque.png")
+            div.banner-text
+                h1 DIOCÈSE DE NKONGSAMBA
         div.top-menu
             table.tabs
                 tr
@@ -25,10 +31,34 @@ html
                                             a(href="/usergen/"+page.code) #{page.title}
 
         block content
-        footer
-            br
-            p #[a(href="/") Accueil] | 
-                if loggedIn
-                    | #[a(href="/admin") Admin] | #[a(href="/logout") Se déconnecter]
-                else
-                    | #[a(href="/login") Se connecter]
+
+        footer.site-footer
+            div.footer-container
+                div.footer-logo
+                    img(src="/images/logo.png")
+                    h2 Diocèse de Nkongsamba
+                    p Ce que nos mains ont touché.
+                div.footer-links
+                    h3 Quick Links
+                    ul
+                        li #[a(href="/") Acceuil]
+                        if loggedIn
+                            li #[a(href="/admin") Admin]
+                            li #[a(href="/logout") Se déconnecter]
+                        else
+                            li #[a(href="/login") Se connecter]
+                        li #[a(href="#") Événements]
+                        li #[a(href="#") À propos]
+                        li #[a(href="#") Contact]
+                div.footer-links
+                    h3 Universal
+                    ul
+                        li #[a(href="#") Pape François]
+                        li #[a(href="#") Vatican News]
+                        li #[a(href="#") Mission]
+                        li #[a(href="#") Doctrine]
+                div.footer-contact
+                    h3 Contact
+                    p B.P. 333 Nkongsamba, Cameroun
+                    p Email: contact@nkongsamba.org
+                    p Tél: +237 6 78 90 12 34
