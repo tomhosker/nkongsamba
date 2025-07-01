@@ -1,5 +1,34 @@
 extends layout
 
 block content
+    div.slideshow-container
+        div.mySlides.fade
+            img.slideshow(src="/images/layout_slides/image1.jpg")
+        div.mySlides.fade
+            img.slideshow(src="/images/layout_slides/image2.jpg")
+        div.mySlides.fade
+            img.slideshow(src="/images/layout_slides/image3.jpg")
+
     h1 #{title}
     p Fill me in!
+
+    script.
+        const TIMEOUT = 6000 // In milliseconds.
+        let slideIndex = 0;
+
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+
+            slideIndex++;
+
+            if (slideIndex > slides.length) {slideIndex = 1}    
+
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, TIMEOUT);
+        }
