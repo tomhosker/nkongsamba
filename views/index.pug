@@ -2,39 +2,38 @@ extends layout
 
 block content
     div.slideshow-container
-        div.mySlides.fade
+        div.index-slides.fade
             img.slideshow(src="/images/index_slides/image1.jpg")
-        div.mySlides.fade
+        div.index-slides.fade
             img.slideshow(src="/images/index_slides/image2.jpg")
-        div.mySlides.fade
+        div.index-slides.fade
             img.slideshow(src="/images/index_slides/image3.jpg")
 
     section.text-containers
-        div.div1
+        div.mission-statement-box
             h3 Notre Mission
             p Évangéliser le peuple de Dieu par l'offrande de pouvoirs spirituels et matériels pour la gloire de Dieu et le salut des âmes.
-        div.div2
+        div.mission-statement-box
             h3 Notre Vision
             p Un diocèse où le peuple de Dieu vit pleinement la vie offerte par Jésus-Christ grâce au développement humain intégral et à l'épanouissement spirituel.
-        div.div3
+        div.mission-statement-box
             h3 Notre Devise
-            p #[i Quod Manus Nostrae Contrectaverunt]
-            p Ce que nos mains ont touché.
+            p #[i Quod manus nostrae contrectaverunt]
+            p Ce que nos mains ont touché
 
-    div.gray-bg-wrapper
-        div.new-flexbox
-            div.text-left
+    div.grey-bg-wrapper
+        div.index-flexbox
+            div.index-flexbox-text
                 h2 Diocèse de Nkongsamba
                 p L'évolution du territoire de l'actuel diocèse de Nkongsamba est assez complexe. En 1890 (le 18 Mars), Erection de la Préfecture apostolique du Cameroun confié aux Pères Pallotins, le Cameroun faisant parti jusque là du Vicariat Apostolique du Gabon (1863) né aussi de la Préfecture Apostolique des deux Guinées en date de 1842. Le Père Henri VIETER est nommé Premier Préfet Apostolique.
                 p A partir de 1912 commence à se dessiner la physionomie propre de l'Eglise actuelle de Nkongsamba qui a cette date fait parti de la Mission de l'Adamaoua confiée aux Prêtres du Sacré-Cœur de saint Quentin de la Province Allemande. Leurs premiers missionnaires arrivent à Douala le 30 novembre 1912. La mission de l'Adamaoua, (à la différence des régions confiées aux Pères du Saint Esprit et couvrant le Centre, le Sud, l'Est et le Littoral excepté les départements du Nkam, du Moungo et l'autre rive du fleuve Wouri ouvrant sur Bonabéri), couvre toute la partie restante du Cameroun.
-                a.btn.btn-default(href="#") Plus de détails
+                a.link-as-button(href="#") Plus de détails
 
-        div.image-right
+        div.index-flexbox-image
             div.image-frame
                 img(src="/images/eveque_large.jpg")
-            div.image-btn
-                h2 Mgr. Dieudonné Espoir ATANGANA
-                p Eveque de Nkongsamba
+            h2 Mgr. Dieudonné Espoir ATANGANA
+            p #[b #[i Évêque de Nkongsamba]]
 
     script.
         const TIMEOUT = 6000 // In milliseconds.
@@ -43,7 +42,7 @@ block content
         showSlides();
 
         function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
+            let slides = document.getElementsByClassName("index-slides");
 
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";  

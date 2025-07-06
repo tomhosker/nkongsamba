@@ -7,7 +7,7 @@ html
         header.banner
             div.logo-container
                 img.logo(src="/images/logo.png")
-            div.eve-container
+            div.bishop-container
                 img(src="/images/eveque.png")
             div.banner-text
                 h1 DIOCÈSE DE NKONGSAMBA
@@ -16,7 +16,7 @@ html
                 tr
                     td.tabs
                         div.dropdown
-                            button.top-menu Accueil
+                            button.top-menu Accueil ▼
                             div.dropdown-content
                                 a(href="/") Accueil
                                 if globalData.sections.Accueil
@@ -25,7 +25,7 @@ html
                         each sectionData, sectionTitle in globalData.sections
                             if !(["Accueil", "Internal Use Only"].includes(sectionTitle))
                                 div.dropdown
-                                    button.top-menu #{sectionTitle}
+                                    button.top-menu #{sectionTitle} ▼
                                     div.dropdown-content
                                         each page in sectionData
                                             a(href=`/usergen/${page.code}`) #{page.title}
@@ -33,12 +33,12 @@ html
         div.main-body
             block content
 
-        footer.site-footer
+        footer.site
             div.footer-container
                 div.footer-logo
                     img(src="/images/logo.png")
                     h2 Diocèse de Nkongsamba
-                    p Ce que nos mains ont touché.
+                    p #[i Ce que nos mains ont touché]
                 div.footer-links
                     h3 Quick Links
                     ul
