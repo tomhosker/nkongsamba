@@ -277,6 +277,18 @@ img.slideshow {
     width: 100%
 }
 
+/* LISTS */
+
+ol, ul {
+    margin-left: 2em;
+}
+
+/* P */
+
+p {
+    margin-bottom: 0.5em;
+}
+
 /* SECTION */
 
 section.text-containers {

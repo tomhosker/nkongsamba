@@ -37,6 +37,7 @@ router.get("/:id", (req, res) => {
             res.send(`No user-generated page with code: ${code}`);
         } else {
             properties = {title: data.title, data: data.html};
+console.log(properties);
             finaliser.protoRender(req, res, "usergen", properties);
         }
     });

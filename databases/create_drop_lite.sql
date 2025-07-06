@@ -21,7 +21,7 @@ CREATE TABLE UserGeneratedPage (
     code TEXT PRIMARY KEY,
     section TEXT NOT NULL DEFAULT 'internal-use-only' REFERENCES UserGeneratedSection (code),
     title TEXT UNIQUE,
-    markdown TEXT
+    html TEXT
 );
 
 -- Insert dummy data.
@@ -34,11 +34,3 @@ VALUES (
 
 INSERT INTO UserGeneratedSection (code, title)
 VALUES ('internal-use-only', 'Internal Use Only');
-
-INSERT INTO UserGeneratedPage (code, section, title, markdown)
-VALUES (
-    'test',
-    'internal-use-only',
-    'Test',
-    'This is a test page. If you''re reading it, the test has probably passed!'
-);
