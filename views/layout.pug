@@ -18,17 +18,17 @@ html
                         div.dropdown
                             button.top-menu Accueil
                             div.dropdown-content
-                                a(href="/") Bienvenue!
+                                a(href="/") Accueil
                                 if globalData.sections.Accueil
                                     each page in globalData.sections.Accueil
-                                        a(href="/usergen/"+page.code) #{page.title}
+                                        a(href=`/usergen/${page.code}`) #{page.title}
                         each sectionData, sectionTitle in globalData.sections
                             if !(["Accueil", "Internal Use Only"].includes(sectionTitle))
                                 div.dropdown
                                     button.top-menu #{sectionTitle}
                                     div.dropdown-content
                                         each page in sectionData
-                                            a(href="/usergen/"+page.code) #{page.title}
+                                            a(href=`/usergen/${page.code}`) #{page.title}
 
         div.main-body
             block content
