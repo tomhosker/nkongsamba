@@ -7,7 +7,7 @@ block content
             li Enter the revised fields of the page, and press ``Submit'' to carry out the changes.
             li The #[code code] field gives the page's unique identifier; #[b you can't change it].
             li You already known what the #[code title] field does!
-            li The #[code markdown] field gives the content of the page; you should write it in the #[a(href="https://www.markdownguide.org/") ``Markdown'' markup language].
+            li The #[code html] field gives the content of the page; you should write it in HTML.
     h1=title
 
     p Amend an existing user-generated page?
@@ -24,7 +24,7 @@ block content
         p
             | #[code title]:
             input(type="text", name="title", value=existingData.title, required)
-        p #[code markdown]:
+        p #[code html]:
         p
-            textarea(name="markdown", required)=existingData.markdown
+            textarea(name="html", required)=existingData.html
             input(type="submit", value="Submit")

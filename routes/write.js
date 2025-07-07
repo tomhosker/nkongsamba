@@ -82,13 +82,13 @@ router.post("/insertinto/UserGeneratedSection", (req, res) => {
 // Execute the insertion of a new user-generated page.
 router.post("/insertinto/UserGeneratedPage", (req, res) => {
     const query =
-        "INSERT INTO UserGeneratedPage (code, section, title, markdown) " +
+        "INSERT INTO UserGeneratedPage (code, section, title, html) " +
         "VALUES (?, ?, ?, ?);";
     const params = [
         req.body.code,
         req.body.section,
         req.body.title,
-        req.body.markdown
+        req.body.html
     ];
     let properties, success;
 
@@ -110,12 +110,12 @@ router.post("/insertinto/UserGeneratedPage", (req, res) => {
 router.post("/update/UserGeneratedPage", (req, res) => {
     const query =
         "UPDATE UserGeneratedPage " +
-        "SET section = ?, title = ?, markdown = ? " +
+        "SET section = ?, title = ?, html = ? " +
         "WHERE code = ?;";
     const params = [
         req.body.section,
         req.body.title,
-        req.body.markdown,
+        req.body.html,
         req.body.code
     ];
     let properties, success;

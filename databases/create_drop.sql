@@ -21,5 +21,5 @@ CREATE TABLE UserGeneratedPage (
     code VARCHAR(99) PRIMARY KEY,
     title VARCHAR(99) UNIQUE,
     section VARCHAR(99) NOT NULL DEFAULT 'internal-use-only' REFERENCES UserGeneratedSection (code),
-    markdown VARCHAR(99999),
+    html VARCHAR(99999),
 );
