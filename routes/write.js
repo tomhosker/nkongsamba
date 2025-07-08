@@ -20,7 +20,7 @@ router.post("/deletefrom/UserGeneratedSection", (req, res) => {
     const params = [req.body.sectionCode];
     let properties, success;
 
-    writer.runDelete(query, params).then((result) => {
+    writer.write(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
             title: success ? "Deletion Successful" : "Deletion Unsuccessful",
@@ -40,7 +40,7 @@ router.post("/deletefrom/UserGeneratedPage", (req, res) => {
     const params = [req.body.pageCode];
     let properties, success;
 
-    writer.runDelete(query, params).then((result) => {
+    writer.write(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
             title: success ? "Deletion Successful" : "Deletion Unsuccessful",
@@ -65,7 +65,7 @@ router.post("/insertinto/UserGeneratedSection", (req, res) => {
     ];
     let properties, success;
 
-    writer.runInsert(query, params).then((result) => {
+    writer.write(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
             title: success ? "Insertion Successful" : "Insertion Unsuccessful",
@@ -92,7 +92,7 @@ router.post("/insertinto/UserGeneratedPage", (req, res) => {
     ];
     let properties, success;
 
-    writer.runInsert(query, params).then((result) => {
+    writer.write(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
             title: success ? "Insertion Successful" : "Insertion Unsuccessful",
@@ -120,7 +120,7 @@ router.post("/update/UserGeneratedPage", (req, res) => {
     ];
     let properties, success;
 
-    writer.runUpdate(query, params).then((result) => {
+    writer.write(query, params).then((result) => {
         success = (result === true) ? true : false;
         properties = {
             title: success ? "Update Successful" : "Update Unsuccessful",
