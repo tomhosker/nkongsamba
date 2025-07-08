@@ -29,7 +29,7 @@ router.post("/deletefrom/UserGeneratedSection", (req, res) => {
             params: params,
             success: success
         };
-
+        writer.close();
         finaliser.protoRender(req, res, "aftersql", properties);
     });
 });
@@ -49,7 +49,7 @@ router.post("/deletefrom/UserGeneratedPage", (req, res) => {
             params: params,
             success: success
         };
-
+        writer.close();
         finaliser.protoRender(req, res, "aftersql", properties);
     });
 });
@@ -74,7 +74,7 @@ router.post("/insertinto/UserGeneratedSection", (req, res) => {
             params: params,
             success: success
         };
-
+        writer.close();
         finaliser.protoRender(req, res, "aftersql", properties);
     });
 });
@@ -101,7 +101,7 @@ router.post("/insertinto/UserGeneratedPage", (req, res) => {
             params: params,
             success: success
         };
-
+        writer.close();
         finaliser.protoRender(req, res, "aftersql", properties);
     });
 });
@@ -129,7 +129,7 @@ router.post("/update/UserGeneratedPage", (req, res) => {
             params: params,
             success: success
         };
-
+        writer.close();
         finaliser.protoRender(req, res, "aftersql", properties);
     });
 });
