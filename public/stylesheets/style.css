@@ -258,6 +258,41 @@ div.top-menu {
     /* Justifies the text */
 }
 
+.card {
+    display: inline-block;
+    background: white;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-container {
+    width: 100%;
+    gap: 20px;  /* space between cards */
+    justify-content: center;  /* centers them horizontally */
+}
+
 /* FOOTER */
 
 footer.site {
@@ -434,43 +469,6 @@ helpbox {
     padding-right: 20px;
     border-radius: 10px;
     border-color: orange;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    height: auto;
-    overflow: hidden;
-    min-height: 350px;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.card-container {
-    display: inline-block;
-    width: 100%;
-    gap: 20px;  /* space between cards */
-    justify-content: center;  /* centers them horizontally */
 }
 
 /***********************
