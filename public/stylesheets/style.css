@@ -81,7 +81,8 @@ button.name-button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    text-decoration: none; /* removes underline from link */
+    text-decoration: none;
+    /* removes underline from link */
     gap: 4px;
 }
 
@@ -463,6 +464,13 @@ helpbox {
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;  /* allows cards to break onto a new line if needed */
+    gap: 20px;  /* space between cards */
+    justify-content: center;  /* centers them horizontally */
 }
 
 /***********************
