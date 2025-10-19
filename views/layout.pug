@@ -16,12 +16,7 @@ html
                 tr
                     td.tabs
                         div.dropdown
-                            button.top-menu Accueil ▼
-                            div.dropdown-content
-                                a(href="/") Accueil
-                                if globalData.sections.Accueil
-                                    each page in globalData.sections.Accueil
-                                        a(href=`/usergen/${page.code}`) #{page.title}
+                            button.top-menu #[a.plain(href="/") Accueil]
                         each sectionData, sectionTitle in globalData.sections
                             if !(["Accueil", "Internal Use Only"].includes(sectionTitle))
                                 div.dropdown

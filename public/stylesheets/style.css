@@ -37,6 +37,11 @@ a.link-as-button:hover {
     box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
 }
 
+a.plain {
+    color: white;
+    text-decoration: none;
+}
+
 /* BODY */
 
 body {
