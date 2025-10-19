@@ -437,9 +437,9 @@ helpbox {
 }
 
 .card {
-    background: white;
     display: flex;
     flex-direction: column;
+    background: white;
     justify-content: space-between;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -467,9 +467,8 @@ helpbox {
 }
 
 .card-container {
+    display: inline-block;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;  /* allows cards to break onto a new line if needed */
     gap: 20px;  /* space between cards */
     justify-content: center;  /* centers them horizontally */
 }
