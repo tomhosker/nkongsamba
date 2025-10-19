@@ -467,6 +467,7 @@ helpbox {
 }
 
 .card-container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;  /* allows cards to break onto a new line if needed */
     gap: 20px;  /* space between cards */
