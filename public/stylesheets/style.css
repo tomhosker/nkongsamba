@@ -432,6 +432,68 @@ td.tabs {
     text-align: center;
 }
 
+.chaplaincy-apostolates {
+    table-layout: fixed;
+    width: 1200px;
+    max-width: 100%;
+    margin: 0px auto;
+    border: 2px solid #666;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    font-family: Cambria, serif;
+    background: white;
+}
+
+.chaplaincy-apostolates th {
+    background: #e6e6e6;
+    color: #BF0A30;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding:10px;
+    text-align: justify;
+    vertical-align: top;
+    border: 0.5pt solid black;
+    width: 50%;
+}
+
+.chaplaincy-apostolates td {
+    width: 50%;
+    padding: 10px;
+    vertical-align: top;
+    border: 0.5pt solid black;
+    text-align: justify;
+}
+
+.chaplaincy-apostolates ul {
+    margin: 0;
+    padding-left: 1em;
+    list-style: none;
+}
+
+.chaplaincy-apostolates li {
+  display: flex;          
+  align-items: baseline; 
+  gap: 8px;              
+  margin-bottom: 4px;  
+
+  }
+
+  .chaplaincy-apostolates li strong {
+  display: inline-block;  
+  margin: 0;              
+  white-space: nowrap;    
+}
+
+.chaplaincy-apostolates span {
+    font-size: 13pt;
+    line-height: 1.4;
+}
+
+.chaplaincy-apostolates strong {
+    display: block;
+    margin: 8px 0 4px;
+}
+
 /* TEXTAREA */
 
 textarea {
