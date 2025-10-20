@@ -419,6 +419,10 @@ table.tabs {
     border: none;
 }
 
+tr {
+    background-color: white;
+}
+
 tr:nth-child(even) {
     background-color: #dddddd;
 }
