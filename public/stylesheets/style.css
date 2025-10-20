@@ -469,6 +469,10 @@ td.tabs {
     width: 50%;
 }
 
+.chaplaincy-apostolates tr {
+    background: white;
+}
+
 .chaplaincy-apostolates td {
     width: 50%;
     padding: 10px;
