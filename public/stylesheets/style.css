@@ -1,8 +1,15 @@
 /* General Reset and Base Styles */
 :root {
-    --primary-color: #2d5a2d;
-    --dark-color: #1a3a1a;
-    --text-light: #ffffff;
+    --primary: #2d5a2d;
+    --primary-dark: #1a3a1a;
+    --secondary: #BF0A30;
+    --accent: #6a1b9a;
+    --light: #f8f9fa;
+    --text: #333;
+    --gold: #f9e076;
+    --card-bg: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 * {
@@ -20,7 +27,7 @@
 
 a.link-as-button {
     display: inline-block;
-    background: var(--primary-color);
+    background: var(--primary);
     color: white !important;
     padding: 10px 20px;
     border-radius: 4px;
@@ -61,11 +68,11 @@ button.top-menu {
     text-align: center;
     width: 200px;
     cursor: pointer;
-    background-color: var(--dark-color);
+    background-color: var(--primary-dark);
 }
 
 button.top-menu:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary);
 }
 
 button.name-button {
@@ -102,7 +109,7 @@ div.banner-text h1 {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: white;
 }
 
 div.dropdown {
@@ -242,7 +249,7 @@ div.slideshow-container {
 }
 
 div.top-menu {
-    background-color: var(--dark-color);
+    background-color: var(--primary-dark);
 }
 
 .bio-container {
@@ -298,7 +305,7 @@ div.top-menu {
 /* FOOTER */
 
 footer.site {
-    background: var(--dark-color);
+    background: var(--primary-dark);
     color: white;
     padding: 2rem 0;
 }
@@ -350,7 +357,7 @@ header.banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     padding: 20px 40px;
     height: auto;
     flex-wrap: wrap;
