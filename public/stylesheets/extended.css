@@ -45,17 +45,11 @@ img.pretre {
 img.hospital-main {
     border-radius: 10px;
     transition: all 0.3s ease;
-    width: 90%;
+    width: 100%;
 }
 
 .single-sermon-wrap {
     margin-top: 30px;
-}
-
-.sermons-thumb {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
 }
 
 .sermons-content h3 {
@@ -74,13 +68,6 @@ img.hospital-main {
     width: 60px;
     height: 3px;
     background: #c59d5f;
-}
-
-.pro img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    object-position: top;
 }
 
 .component-grid {
