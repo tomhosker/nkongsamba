@@ -37,3 +37,89 @@ img.pretre {
     font-size: 0.9rem;
     margin-bottom: 0.3rem;
 }
+
+/************
+** HOPITAL **
+************/
+
+img.hospital-main {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 90%;
+}
+
+.single-sermon-wrap {
+    margin-top: 30px;
+}
+
+.sermons-thumb {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.sermons-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.sermons-content h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #c59d5f;
+}
+
+.pro img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.component-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.component-grid div {
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.component-grid div:hover {
+    transform: translateY(-5px);
+}
+
+.component-grid li {
+    list-style-type: none;
+    font-weight: 700;
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.component-grid p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.fa-star {
+    margin-right: 10px;
+}
+
+.theme-color {
+    color: #c59d5f;
+}
