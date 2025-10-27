@@ -75,28 +75,6 @@ button.top-menu:hover {
     background-color: var(--primary);
 }
 
-button.name-button {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 5px;
-    padding: 8px 12px;
-    background-color: #005792;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    /* removes underline from link */
-    gap: 4px;
-}
-
-button.name-button:hover {
-    background-color: #003f6b;
-}
-
 /* DIV */
 
 div.banner-text {
@@ -252,56 +230,6 @@ div.top-menu {
     background-color: var(--primary-dark);
 }
 
-.bio-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.bio-text {
-    flex: 1;
-    min-width: 250px;
-    text-align: justify;
-    /* Justifies the text */
-}
-
-.card {
-    display: inline-block;
-    background: white;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    height: auto;
-    overflow: hidden;
-    min-height: 350px;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.card-container {
-    width: 100%;
-    gap: 20px;
-    /* space between cards */
-    justify-content: center;
-    /* centers them horizontally */
-}
-
 /* FOOTER */
 
 footer.site {
@@ -310,7 +238,7 @@ footer.site {
     padding: 2rem 0;
 }
 
-.footer-container {
+div.footer-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -319,9 +247,9 @@ footer.site {
     padding: 0 1rem;
 }
 
-.footer-logo,
-.footer-links,
-.footer-contact {
+div.footer-logo,
+div.footer-links,
+div.footer-contact {
     width: 100%;
     text-align: center;
 }
@@ -443,219 +371,6 @@ td.tabs {
     border: none;
     padding: none;
     text-align: center;
-}
-
-.chaplaincy-apostolates {
-    table-layout: fixed;
-    width: 1200px;
-    max-width: 100%;
-    margin: 0px auto;
-    border: 2px solid #666;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    font-family: Cambria, serif;
-    background: white;
-}
-
-.chaplaincy-apostolates th {
-    background: #e6e6e6;
-    color: #BF0A30;
-    font-weight: 900;
-    text-transform: uppercase;
-    padding: 10px;
-    text-align: justify;
-    vertical-align: top;
-    border: 0.5pt solid black;
-    width: 50%;
-}
-
-.chaplaincy-apostolates tr {
-    background: white;
-}
-
-.chaplaincy-apostolates td {
-    width: 50%;
-    padding: 10px;
-    vertical-align: top;
-    border: 0.5pt solid black;
-    text-align: justify;
-}
-
-.chaplaincy-apostolates ul {
-    margin: 0;
-    padding-left: 1em;
-    list-style: none;
-}
-
-.chaplaincy-apostolates li {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 4px;
-
-}
-
-.chaplaincy-apostolates li strong {
-    display: inline-block;
-    margin: 0;
-    white-space: nowrap;
-}
-
-.chaplaincy-apostolates span {
-    font-size: 13pt;
-    line-height: 1.4;
-}
-
-.chaplaincy-apostolates strong {
-    display: block;
-    margin: 8px 0 4px;
-}
-
-.content-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-bottom: 40px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border);
-}
-
-.content-body {
-    padding: 30px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="white" opacity="0.05"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%232d5a2d" stroke-width="1" stroke-opacity="0.05"/></svg>');
-    background-size: 200px;
-}
-
-.section-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--primary);
-    color: var(--primary-dark);
-    font-size: 1.4rem;
-    font-family: 'Playfair Display', serif;
-}
-
-.section-title i {
-    margin-right: 10px;
-    color: var(--secondary);
-    background: rgba(191, 10, 48, 0.1);
-    padding: 8px;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.media-container {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-.media-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.media-container img:hover {
-    transform: scale(1.02);
-}
-
-.components-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.component-card {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border-left: 4px solid var(--secondary);
-}
-
-.component-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.component-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.component-icon {
-    font-size: 1.5rem;
-    color: var(--secondary);
-    margin-right: 15px;
-    min-width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(191, 10, 48, 0.1);
-    border-radius: 50%;
-}
-
-.component-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.component-content {
-    color: #555;
-    line-height: 1.6;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 40px 30px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: 10px;
-    color: white;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-}
-
-.page-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--secondary), var(--accent));
-}
-
-.page-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.page-header h2 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--gold);
-    font-style: italic;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* TEXTAREA */
