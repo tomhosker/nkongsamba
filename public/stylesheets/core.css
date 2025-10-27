@@ -238,7 +238,7 @@ footer.site {
     padding: 2rem 0;
 }
 
-div.footer-container {
+.footer-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
