@@ -1,6 +1,13 @@
 /* Shared Stuff */
 :root {
+    --primary: #2d5a2d;
     --primary-dark: #1a3a1a;
+    --accent: #6a1b9a;
+    --secondary: #BF0A30;
+    --gold: #f9e076;
+    --card-bg: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /************

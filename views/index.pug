@@ -7,7 +7,7 @@ block content
         div.index-slides.fade
             img.slideshow(src="/images/index_slides/image2.jpg")
         div.index-slides.fade
-            img.slideshow(src="/images/index_slides/image3.jpg")
+            img.slideshow(src="https://placehold.co/1500x1000")
 
     section.text-containers
         div.mission-statement-box
@@ -36,22 +36,36 @@ block content
             p #[b #[i Évêque de Nkongsamba]]
 
     script.
-        const TIMEOUT = 6000 // In milliseconds.
+        const TIMEOUT = 2000 // In milliseconds.
+
         let slideIndex = 0;
 
         showSlides();
+
+        function initSlides() {
+            const result = document.getElementsByClassName("index-slides");
+
+            for (let i = 0; i < result.length; i++) {
+                result[i].style.display = "none";
+            }
+
+            return result;
+        }
 
         function showSlides() {
             let slides = document.getElementsByClassName("index-slides");
 
             for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
+                slides[i].style.display = "none";
             }
 
             slideIndex++;
 
-            if (slideIndex > slides.length) {slideIndex = 1}    
+            if (slideIndex === slides.length) {
+                slideIndex = 0;
+            }
 
-            slides[slideIndex-1].style.display = "block";  
+            slides[slideIndex].style.display = "block";
+
             setTimeout(showSlides, TIMEOUT);
         }
