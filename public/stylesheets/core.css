@@ -295,6 +295,7 @@ div.top-menu {
 .footer-links ul {
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 .footer-links li {
