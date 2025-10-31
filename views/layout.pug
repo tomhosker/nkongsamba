@@ -27,6 +27,8 @@ html
                                     div.dropdown-content
                                         each page in sectionData
                                             a(href=`/usergen/${page.code}`) #{page.title}
+                        if loggedIn
+                            button.top-menu #[a.plain(href="/admin") Admin]
 
         div.main-body
             block content
@@ -48,6 +50,11 @@ html
                             a(href="#") À propos
                         li
                             a(href="#") Contact
+                        li
+                            if loggedIn
+                                a(href="/logout") Se déconnecter
+                            else
+                                a(href="/login") Se connecter
                 div.footer-links
                     h3 Universal
                     ul
@@ -65,4 +72,4 @@ html
                     p #[i.fas.fa-envelope] Email: contact@nkongsamba.org
                     p #[i.fas.fa-phone] Tél: +237 6 78 90 12 34
             div.copyright
-                p &copy; 2023 Diocèse de Nkongsamba. Tous droits réservés.
+                p &copy; 2025 Diocèse de Nkongsamba. Tous droits réservés.
