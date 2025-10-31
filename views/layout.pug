@@ -27,7 +27,8 @@ html
                                     div.dropdown-content
                                         each page in sectionData
                                             a(href=`/usergen/${page.code}`) #{page.title}
-                            if loggedIn
+                        if loggedIn
+                            div.dropdown
                                 button.top-menu #[a.plain(href="/admin") Admin]
 
         div.main-body
