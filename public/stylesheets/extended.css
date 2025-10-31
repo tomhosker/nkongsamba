@@ -46,6 +46,12 @@ button.name-button:hover {
     background-color: #003f6b;
 }
 
+.pretre-container {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+    margin-bottom: 1.5rem !important;
+}
+
 .card {
     display: inline-block;
     background: white;
